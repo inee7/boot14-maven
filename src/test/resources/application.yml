@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: test
+---
+spring:
+  profiles: test
+
+server:
+  port: 8080
+
+name: hyo
