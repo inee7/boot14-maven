@@ -9,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.assertj.core.api.Assertions.*;
+
 @Slf4j
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
@@ -21,8 +23,9 @@ public class KakaoServiceTest {
 
     @Test
     public void 재시도_후_복구() {
-        String token = kakaoServiceException.getToken();
+        String result = "테스트";
+        String token = kakaoServiceException.getToken(result);
         log.info(token);
-        Assertions.assertThat(token).isEqualTo("복구됨");
+        assertThat(token).isEqualTo(result);
     }
 }

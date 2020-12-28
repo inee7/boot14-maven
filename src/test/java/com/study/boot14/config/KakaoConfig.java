@@ -15,18 +15,19 @@ public class KakaoConfig {
     public KakaoService kakaoServiceException() {
         return new KakaoService() {
             @Override
-            public String getToken() {
+            public String getToken(String arg) {
                 log.info("call getToken");
                 throw new RuntimeException("getToken시 에러");
 //            return "test";
             }
 
             @Override
-            public String recover(Exception exception) {
+            public String recover(Exception exception, String arg) {
                 log.info("call recover");
 
-                return "복구됨";
+                return arg;
             }
         };
     }
+
 }

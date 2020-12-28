@@ -6,8 +6,8 @@ import org.springframework.retry.annotation.Retryable;
 public interface KakaoService {
 
     @Retryable(value = RuntimeException.class)
-    String getToken();
+    String getToken(String arg);
 
     @Recover
-    String recover(Exception exception);
+    String recover(Exception exception, String arg);
 }
